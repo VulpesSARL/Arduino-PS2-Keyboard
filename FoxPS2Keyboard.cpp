@@ -6,10 +6,6 @@
 #define IRQPin 3
 
 
-#pragma GCC push_options
-#pragma GCC optimize ("O2")
-
-
 #define BUFFER_SIZE 45
 static volatile uint8_t buffer[BUFFER_SIZE];
 static volatile uint8_t head, tail;
@@ -19,6 +15,9 @@ static volatile byte SendBits[10];
 static volatile uint8_t disableisr;
 static volatile uint8_t fulldisableisr;
 static volatile uint16_t waitcounter;
+
+#pragma GCC push_options
+#pragma GCC optimize ("O2")
 
 void KeyboardISR() //FALLING EDGE
 {
